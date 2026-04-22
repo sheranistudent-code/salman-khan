@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikandar Bridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sikandar-extension">
+    <div class="app-wrap">
+        <header class="header">
+            <h1>Sikandar Bridge (Urdu)</h1>
+            <div class="header-actions">
+                <span id="status-badge" class="badge">تیار ہے</span>
+                <button id="settings-btn" class="icon-btn">⚙️</button>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="glass-box">
+                <textarea id="output" placeholder="بولنا شروع کریں..."></textarea>
+                
+                <div class="mic-section">
+                    <button id="mic-btn" class="mic-circle">
+                        <span class="icon">🎤</span>
+                        <div class="pulse"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="action-grid">
+                <button id="copy-btn" class="btn">📋 Copy</button>
+                <button id="clear-btn" class="btn">🗑️ Clear</button>
+                <button id="history-btn" class="btn">📜 History</button>
+            </div>
+
+            <div class="bridge-section" id="bridge-ui">
+                <p>Sync to AI Hub:</p>
+                <div class="hub-links">
+                    <button class="hub-btn" data-url="https://chatgpt.com" title="ChatGPT">GPT</button>
+                    <button class="hub-btn" data-url="https://gemini.google.com" title="Gemini">GEM</button>
+                    <button class="hub-btn" data-url="https://claude.ai" title="Claude">CLD</button>
+                    <button class="hub-btn" data-url="https://perplexity.ai" title="Perplexity">PRX</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Panels -->
+        <section id="history-panel" class="side-panel hidden">
+            <div class="panel-header">
+                <h3>Transcription History</h3>
+                <button id="close-history" class="close-btn">×</button>
+            </div>
+            <div id="history-list"></div>
+        </section>
+
+        <section id="settings-panel" class="side-panel hidden">
+            <div class="panel-header">
+                <h3>Settings</h3>
+                <button id="close-settings" class="close-btn">×</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>Auto-Copy to Clipboard</label>
+                    <label class="switch">
+                        <input type="checkbox" id="auto-copy-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>Persistent Listening</label>
+                    <label class="switch">
+                        <input type="checkbox" id="persistent-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Sikandar Bridge &copy; 2024 | <span>Sikandar Hayat Baba</span></p>
+        </footer>
+    </div>
+
+    <!-- Background Animation Elements -->
+    <div class="bg-glow"></div>
+    <div class="bg-particles" id="particles"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

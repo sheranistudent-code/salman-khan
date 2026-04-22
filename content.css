@@ -1,0 +1,59 @@
+.sikandar-bridge-wrapper {
+    position: absolute;
+    z-index: 999999;
+    display: none;
+    pointer-events: none;
+}
+
+.sikandar-injected-mic {
+    pointer-events: auto;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 16px;
+    margin-left: 5px;
+    opacity: 0.8;
+}
+
+.sikandar-injected-mic:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.sikandar-injected-mic.recording {
+    background: #f87171;
+    animation: sikandar-pulse 1.5s infinite;
+}
+
+@keyframes sikandar-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(248, 113, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(248, 113, 113, 0); }
+}
+
+.sikandar-injected-mic.recording::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    z-index: -1;
+    animation: sikandar-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes sikandar-ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}

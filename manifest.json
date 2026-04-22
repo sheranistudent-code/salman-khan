@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Sikandar Bridge - Universal Voice-to-Text",
+  "version": "1.0.0",
+  "description": "High-end voice-to-text bridge with clipboard sync and AI integration.",
+  "author": "Sikandar Hayat Baba",
+  "permissions": ["storage", "clipboardWrite", "tabs"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.google.com/*", "*://*.gemini.google.com/*", "*://*.chatgpt.com/*", "*://*.claude.ai/*", "*://*.perplexity.ai/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
